@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="d-flex p-5">
+ {% for event in list %}
+<div class="card  mx-5" style="width: 18rem;">
+  <img src="{{event.image.url}}" class="card-img-top" alt="..."> 
+  <div class="card-body">
+    <h5 class="card-title">{{event.title}}</h5>
+    <p class="card-text"> {{event.description}}</p>
+
+        <p class="card-text"> Date: {{event.evt_date}}</p>
+    <p class="card-text"> organisateur:  {{event.organisateur}}</p>
+    <a href="{% url 'detailsClass'  event.id %}" class="btn btn-primary">Details Class</a>
+
+    <a href="{% url 'details'  event.id %}" class="btn btn-primary">Details function</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+</div>
+{% endblock %}
